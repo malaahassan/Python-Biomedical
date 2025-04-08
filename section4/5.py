@@ -1,11 +1,7 @@
-USERS = {'user1': 'password1', 'user2': 'password2'}
+def substitute(equation, **kwargs):
+    for elem in equation:
+        if(elem in kwargs.keys()):
+            equation = equation.replace(elem, str(kwargs[elem]))
+    return equation
 
-user = input("Enter username: ").strip()
-while(len(user) < 1):
-    user = input("Enter username: ").strip()
-    
-password = input("Enter password: ")
-while(len(password) < 1):
-    password = input("Enter password: ")
-
-USERS[user] = password
+print(substitute("x + y = 5", x = 1, y = 4))
